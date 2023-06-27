@@ -1,5 +1,3 @@
 **/node_modules/**
-**/.husky/**
-**/public/**
 **/*.lock
 .DS_Store
