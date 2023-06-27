@@ -2,7 +2,7 @@
   "name": "share-v1-common-types",
   "version": "1.0.0",
   "description": "Share network common types and interfaces",
-  "main": "src/index.tsx",
+  "main": "src/index.ts",
   "author": "brandon@formless.xyz",
   "license": "UNLICENSED"
 }
