@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 70,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "files.exclude": {
+    "**/.prettier*": true,
+    "**/node_modules/": true,
+    "**/package-lock.json": true,
+    "**/.eslintrc.json": true,
+    "**/.lintstagedrc": true
+  }
+}
