@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "solidity.formatter": "prettier",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 70,
+  "python.formatting.provider": "autopep8",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "files.exclude": {
+    "**/.prettier*": true,
+    "**/node_modules/": true,
+    "**/package-lock.json": true,
+    "**/.eslintrc.json": true,
+    "**/.lintstagedrc": true
+  }
+}
