@@ -1,0 +1,11 @@
+{
+  "name": "share-v1-common-types",
+  "version": "1.0.0",
+  "description": "Share network common types and interfaces",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brandon@formless.xyz",
+  "license": "UNLICENSED"
+}
