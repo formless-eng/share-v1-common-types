@@ -5,9 +5,9 @@ export class FinancialAccount
   implements IFinancialAccount, IVDRSerializable
 {
   isManaged: boolean = false;
-  evmBlockchainAddress?: string | undefined = undefined;
-  evmBlockchainSignature?: string | undefined = undefined;
-  evmBlockchainNetworkID?: number | undefined = undefined;
+  evmBlockchainAddress: string | undefined = undefined;
+  evmBlockchainSignature: string | undefined = undefined;
+  evmBlockchainNetworkID: number | undefined = undefined;
 
   fromVDRFormattedDictionary(entry: Dictionary): FinancialAccount {
     // @ts-ignore
