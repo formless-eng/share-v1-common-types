@@ -1,4 +1,4 @@
-import { FinancialAccount } from "../lib/FinancialAccount";
+import { FinancialAccount } from "../src";
 
 describe("FinancialAccount", () => {
   let financialAccount: FinancialAccount;
