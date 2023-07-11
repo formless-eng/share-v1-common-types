@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.3",
     "ts-jest": "^29.1.1"
   }
 }
