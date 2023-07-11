@@ -29,8 +29,7 @@ export interface IFinancialAccount {
  */
 export interface IUser {
   networkIdentity: IIdentity;
-  financialAccounts?: IFinancialAccount[];
-  activeAccountIndex?: 0;
+  financialAccount?: IFinancialAccount;
 }
 
 /**
