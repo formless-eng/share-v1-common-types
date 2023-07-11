@@ -4,5 +4,12 @@
   "description": "Share network common types and interfaces",
   "main": "src/index.ts",
   "author": "brandon@formless.xyz",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "ts-jest": "^29.1.1"
+  }
 }
