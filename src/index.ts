@@ -8,4 +8,4 @@ export type {
 
 export type { Dictionary } from "./lib/Types";
 
-export type { FinancialAccount } from "./lib/FinancialAccount";
+export { FinancialAccount } from "./lib/FinancialAccount";
