@@ -38,6 +38,8 @@ export interface IUser {
 export interface ISerializable {
   loadFromDisk(): void;
   saveToDisk(): void;
+  toDictionary(dict: Dictionary): void;
+  fromDictionary(): Dictionary;
 }
 
 /**
