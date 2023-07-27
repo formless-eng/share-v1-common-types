@@ -50,3 +50,21 @@ export interface IVDRSerializable {
   toVDRFormattedDictionary(): Dictionary;
   fromVDRFormattedDictionary(entry: Dictionary): void;
 }
+
+export interface IAsset {
+  asset_title: string;
+  blockchain: number;
+  contract_address: string;
+  creator_address: string;
+  creator_name: string;
+  deployment_metadata: {
+    grant_ttl_seconds: number;
+    price_per_access_usd: number;
+    metadata: {
+      absolute_expiration: number;
+      preview: {
+        image: string;
+      };
+    };
+  };
+}
