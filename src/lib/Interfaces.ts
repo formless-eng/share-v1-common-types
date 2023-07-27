@@ -57,6 +57,7 @@ export interface IAsset {
   contract_address: string;
   creator_address: string;
   creator_name: string;
+  play_count: number;
   deployment_metadata: {
     grant_ttl_seconds: number;
     price_per_access_usd: number;
