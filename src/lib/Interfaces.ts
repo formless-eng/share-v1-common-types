@@ -9,6 +9,8 @@ export interface IIdentity {
   platformAuthenticatorDataBase64?: string | undefined;
   platformAuthenticatorClientDataBase64?: string | undefined;
   platformAuthenticatorSignatureBase64?: string | undefined;
+  googleOAuth2CredentialClientID?: string | undefined;
+  googleOAuth2CredentialJWT?: string | undefined;
 }
 
 /**
