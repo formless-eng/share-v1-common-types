@@ -1,16 +1,37 @@
 import { Dictionary } from "./Types";
 
+export interface IPlatformAuthenticatorCredential {
+  credentialType: string;
+  platformAuthenticatorDataBase64: string;
+  platformAuthenticatorClientDataBase64: string;
+  platformAuthenticatorSignatureBase64: string;
+}
+
+export interface IGoogleOAuth2Credential {
+  credentialType: string;
+  googleOAuth2CredentialClientID: string;
+  googleOAuth2CredentialJWT: string;
+}
+
 /**
  * The network layer identity of a SHARE network
  * participant.
  */
 export interface IIdentity {
   uniqueID?: string | undefined;
+
+  // ----- LEGACY -----
   platformAuthenticatorDataBase64?: string | undefined;
   platformAuthenticatorClientDataBase64?: string | undefined;
   platformAuthenticatorSignatureBase64?: string | undefined;
   googleOAuth2CredentialClientID?: string | undefined;
   googleOAuth2CredentialJWT?: string | undefined;
+
+  // ----- NEW -----
+  platformAuthenticatorCredential?:
+    | IPlatformAuthenticatorCredential
+    | undefined;
+  googleOAuth2Credential?: IGoogleOAuth2Credential | undefined;
 }
 
 /**
@@ -41,6 +62,7 @@ export interface ISerializable {
   loadFromDisk(): void;
   saveToDisk(): void;
   toDictionary(): Dictionary;
+  // eslint-disable-next-line no-unused-vars
   fromDictionary(dict: Dictionary): void;
 }
 
@@ -50,6 +72,7 @@ export interface ISerializable {
  */
 export interface IVDRSerializable {
   toVDRFormattedDictionary(): Dictionary;
+  // eslint-disable-next-line no-unused-vars
   fromVDRFormattedDictionary(entry: Dictionary): void;
 }
 
