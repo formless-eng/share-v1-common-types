@@ -1,5 +1,9 @@
 import { Dictionary } from "./Types";
 
+/*
+ * Secure enclave credential type for use
+ * with WebAuthn based identity verification.
+ */
 export interface IPlatformAuthenticatorCredential {
   credentialType: string;
   platformAuthenticatorDataBase64: string;
@@ -7,6 +11,10 @@ export interface IPlatformAuthenticatorCredential {
   platformAuthenticatorSignatureBase64: string;
 }
 
+/*
+ * Google OAuth2 credential type for use
+ * with one tap sign in with Google based identity verification.
+ */
 export interface IGoogleOAuth2Credential {
   credentialType: string;
   googleOAuth2CredentialClientID: string;
@@ -19,15 +27,12 @@ export interface IGoogleOAuth2Credential {
  */
 export interface IIdentity {
   uniqueID?: string | undefined;
-
-  // ----- LEGACY -----
+  // TODO(https://github.com/formless-eng/share/issues/1965):
+  // Deprecate top level platform authenticator credentials.
   platformAuthenticatorDataBase64?: string | undefined;
   platformAuthenticatorClientDataBase64?: string | undefined;
   platformAuthenticatorSignatureBase64?: string | undefined;
-  googleOAuth2CredentialClientID?: string | undefined;
-  googleOAuth2CredentialJWT?: string | undefined;
 
-  // ----- NEW -----
   platformAuthenticatorCredential?:
     | IPlatformAuthenticatorCredential
     | undefined;
