@@ -18,7 +18,7 @@ export class PlatformAuthenticatorCredential
     platformAuthenticatorClientDataBase64: string,
     platformAuthenticatorSignatureBase64: string
   ) {
-    this.credentialType = "PlatformAuthenticatorCredential";
+    this.credentialType = "platform_authenticator_credential";
     this.platformAuthenticatorDataBase64 =
       platformAuthenticatorDataBase64;
     this.platformAuthenticatorClientDataBase64 =
@@ -72,7 +72,7 @@ export class GoogleOAuth2Credential
     googleOAuth2CredentialClientID: string,
     googleOAuth2CredentialJWT: string
   ) {
-    this.credentialType = "GoogleOAuth2Credential";
+    this.credentialType = "google_oauth2_credential";
     this.googleOAuth2CredentialClientID =
       googleOAuth2CredentialClientID;
     this.googleOAuth2CredentialJWT = googleOAuth2CredentialJWT;
