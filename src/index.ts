@@ -9,3 +9,8 @@ export type {
 export type { Dictionary } from "./lib/Types";
 
 export { FinancialAccount } from "./lib/FinancialAccount";
+
+export {
+  PlatformAuthenticatorCredential,
+  GoogleOAuth2Credential,
+} from "./lib/Credential";
