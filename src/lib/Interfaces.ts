@@ -55,19 +55,24 @@ export interface IAsset {
   asset_title: string;
   blockchain: number;
   contract_address: string;
+  count_transactions: number;
   creator_address: string;
   creator_name: string;
-  play_count: number;
   deployment_metadata: {
+    contracts: any[];
     grant_ttl_seconds: number;
     price_per_access_usd: number;
     metadata: {
       absolute_expiration: number;
       preview: {
-        image: string;
+        image: string | null;
+        type: string;
+        audio?: string;
+        video?: string;
       };
     };
   };
+  play_count: number;
 }
 
 export interface ISplitsData {
