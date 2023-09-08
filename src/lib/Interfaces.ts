@@ -1,4 +1,4 @@
-import { Dictionary } from "./Types";
+import { Dictionary, NotificationEvent } from "./Types";
 
 /*
  * Secure enclave credential type for use
@@ -143,4 +143,10 @@ export interface ISplit {
   percentage: number;
   unique_id: string | null;
   wallet_address: string;
+}
+
+export interface IUserPreferences {
+  enableEmailNotifications: boolean;
+  enablePushNotifications: boolean;
+  enableNotificationsEvents: NotificationEvent[];
 }
