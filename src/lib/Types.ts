@@ -3,6 +3,8 @@ export type Dictionary = {
 };
 
 export enum NotificationEvent {
+  // eslint-disable-next-line no-unused-vars
   Transaction,
+  // eslint-disable-next-line no-unused-vars
   SplitTransaction,
 }
