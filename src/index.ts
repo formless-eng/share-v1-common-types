@@ -1,4 +1,3 @@
-import { UserPreferences } from "./lib/UserPreferences";
 export type {
   IFinancialAccount,
   IIdentity,
