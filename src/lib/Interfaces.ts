@@ -28,7 +28,7 @@ export interface IGoogleOAuth2Credential {
 export interface IIdentity {
   uniqueID?: string | undefined;
   displayName?: string | undefined;
-  verified?: boolean | undefined;
+  verifiedIdentity?: boolean | undefined;
   financialAccounts?: IFinancialAccount[] | undefined;
   // TODO(https://github.com/formless-eng/share/issues/1965):
   // Deprecate top level platform authenticator credentials.
