@@ -14,6 +14,7 @@ describe("UserPreferences", () => {
     expect(userPreferences.enableNotificationsEvents).toEqual([
       NotificationEvent.Transaction,
       NotificationEvent.SplitTransaction,
+      NotificationEvent.PublicRelease,
     ]);
   });
 
@@ -24,6 +25,7 @@ describe("UserPreferences", () => {
       enable_notifications_events: [
         NotificationEvent.Transaction,
         NotificationEvent.SplitTransaction,
+        NotificationEvent.PublicRelease,
       ],
     };
 
@@ -35,6 +37,7 @@ describe("UserPreferences", () => {
     expect(userPreferences.enableNotificationsEvents).toEqual([
       NotificationEvent.Transaction,
       NotificationEvent.SplitTransaction,
+      NotificationEvent.PublicRelease,
     ]);
   });
 
