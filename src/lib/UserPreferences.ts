@@ -1,14 +1,13 @@
 import { IUserPreferences, IVDRSerializable } from "./Interfaces";
 import { Dictionary, NotificationEvent } from "./Types";
 
-export class UserPreferences
-  implements IUserPreferences, IVDRSerializable
-{
+export class UserPreferences implements IUserPreferences, IVDRSerializable {
   enableEmailNotifications: boolean = true;
   enablePushNotifications: boolean = true;
   enableNotificationsEvents: NotificationEvent[] = [
     NotificationEvent.Transaction,
     NotificationEvent.SplitTransaction,
+    NotificationEvent.PublicRelease,
   ];
 
   fromVDRFormattedDictionary(entry: Dictionary): UserPreferences {
