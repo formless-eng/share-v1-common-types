@@ -41,6 +41,28 @@ describe("UserPreferences", () => {
     ]);
   });
 
+  it("should correctly populate properties from a VDR formatted dictionary with integer enum values", () => {
+    const entry = {
+      enable_email_notifications: true,
+      enable_push_notifications: true,
+      enable_notifications_events: [
+        0,
+        1,
+        NotificationEvent.PublicRelease,
+      ],
+    };
+
+    // @ts-ignore
+    userPreferences.fromVDRFormattedDictionary(entry);
+    expect(userPreferences.enableEmailNotifications).toBe(true);
+    expect(userPreferences.enablePushNotifications).toBe(true);
+    expect(userPreferences.enableNotificationsEvents).toEqual([
+      NotificationEvent.Transaction,
+      NotificationEvent.SplitTransaction,
+      NotificationEvent.PublicRelease,
+    ]);
+  });
+
   it("should correctly convert to a VDR formatted dictionary", () => {
     userPreferences.enableEmailNotifications = false;
     userPreferences.enablePushNotifications = false;

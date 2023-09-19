@@ -1,7 +1,9 @@
 import { IUserPreferences, IVDRSerializable } from "./Interfaces";
 import { Dictionary, NotificationEvent } from "./Types";
 
-export class UserPreferences implements IUserPreferences, IVDRSerializable {
+export class UserPreferences
+  implements IUserPreferences, IVDRSerializable
+{
   enableEmailNotifications: boolean = true;
   enablePushNotifications: boolean = true;
   enableNotificationsEvents: NotificationEvent[] = [
@@ -15,9 +17,25 @@ export class UserPreferences implements IUserPreferences, IVDRSerializable {
       entry.enable_email_notifications as boolean;
     this.enablePushNotifications =
       entry.enable_push_notifications as boolean;
+
+    // Support legacy integer enum values which were
+    // previously order dependent.
     this.enableNotificationsEvents =
       //   @ts-ignore
-      entry.enable_notifications_events as NotificationEvent[];
+      entry.enable_notifications_events.map(
+        (event_type: string | number) => {
+          switch (event_type) {
+            case 0:
+              return NotificationEvent.Transaction;
+
+            case 1:
+              return NotificationEvent.SplitTransaction;
+
+            default:
+              return event_type;
+          }
+        }
+      );
     return this;
   }
 
