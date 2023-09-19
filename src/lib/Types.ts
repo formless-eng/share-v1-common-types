@@ -4,9 +4,9 @@ export type Dictionary = {
 
 export enum NotificationEvent {
   // eslint-disable-next-line no-unused-vars
-  PublicRelease,
+  PublicRelease = "PublicRelease",
   // eslint-disable-next-line no-unused-vars
-  Transaction,
+  Transaction = "Transaction",
   // eslint-disable-next-line no-unused-vars
-  SplitTransaction,
+  SplitTransaction = "SplitTransaction",
 }
