@@ -154,7 +154,7 @@ export interface IUserPreferences {
   enableNotificationsEvents: NotificationEvent[];
 }
 
-export interface SplitsPercentage {
+export interface ISplitsPercentage {
   percentage: number;
   settled: boolean;
 }
