@@ -153,3 +153,8 @@ export interface IUserPreferences {
   enablePushNotifications: boolean;
   enableNotificationsEvents: NotificationEvent[];
 }
+
+export interface SplitsPercentage {
+  percentage: number;
+  settled: boolean;
+}
