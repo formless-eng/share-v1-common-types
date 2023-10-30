@@ -126,6 +126,7 @@ export interface ISplit {
   percentage: number;
   unique_id: string | null;
   wallet_address: string;
+  verified_identity: boolean | null;
 }
 
 export interface ISplitsData {
