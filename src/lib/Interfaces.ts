@@ -129,26 +129,6 @@ export interface ISplit {
   verified_identity: boolean | null;
 }
 
-export interface ISplitsData {
-  total_slots: string;
-  total_splits: number;
-  community_allocation_percent: number;
-  percent_per_slot: number;
-  splits_data: {
-    wallet_address: string;
-    unique_id: string;
-    display_name: string | null;
-    percentage: number;
-  }[];
-}
-
-export interface ISplit {
-  display_name: string | null;
-  percentage: number;
-  unique_id: string | null;
-  wallet_address: string;
-}
-
 export interface IUserPreferences {
   enableEmailNotifications: boolean;
   enablePushNotifications: boolean;
