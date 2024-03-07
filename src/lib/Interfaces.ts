@@ -103,6 +103,9 @@ export interface IAsset {
         audio?: string;
         video?: string;
       };
+      splits: {
+        enable_standalone_route: boolean;
+      };
     };
   };
   play_count: number;
