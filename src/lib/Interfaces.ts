@@ -108,6 +108,20 @@ export interface IAsset {
   play_count: number;
 }
 
+export interface IAssetV2 {
+  name: string;
+  id: string;
+  timestamp: {
+    _seconds: number;
+    _nanoseconds: number;
+  };
+  metadata: {
+    name: string;
+    type: string;
+    media_url: string;
+  };
+}
+
 export interface ISplitsData {
   total_slots: string;
   total_splits: number;
