@@ -1,6 +1,7 @@
 import {
   PlatformAuthenticatorCredential,
   GoogleOAuth2Credential,
+  BearerTokenCredential,
 } from "../lib/Credential";
 
 describe("PlatformAuthenticatorCredential", () => {
@@ -110,5 +111,34 @@ describe("GoogleOAuth2Credential", () => {
     expect(credential.googleOAuth2CredentialJWT).toBe(
       "test/googleOAuth2CredentialJWT"
     );
+  });
+});
+
+describe("BearerTokenCredential", () => {
+  let credential: BearerTokenCredential;
+
+  beforeEach(() => {
+    credential = new BearerTokenCredential("test/credentialToken");
+  });
+
+  it("should initialize with correct values", () => {
+    expect(credential.credentialType).toBe("bearer_token");
+    expect(credential.credentialToken).toBe("test/credentialToken");
+  });
+
+  it("should serialize to dictionary with correct values", () => {
+    expect(credential.toDictionary()).toEqual({
+      credential_type: "bearer_token",
+      credential_token: "test/credentialToken",
+    });
+  });
+
+  it("should deserialize from dictionary with correct values", () => {
+    credential.fromDictionary({
+      credential_type: "bearer_token",
+      credential_token: "test/credentialToken",
+    });
+    expect(credential.credentialType).toBe("bearer_token");
+    expect(credential.credentialToken).toBe("test/credentialToken");
   });
 });

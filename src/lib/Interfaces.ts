@@ -21,6 +21,15 @@ export interface IGoogleOAuth2Credential {
   googleOAuth2CredentialJWT: string;
 }
 
+/*
+ * Bearer Token credential type for use with SHARE
+ * protocol smart contract SDK.
+ */
+export interface IBearerTokenCredential {
+  credentialType: string;
+  credentialToken: string;
+}
+
 /**
  * The network layer identity of a SHARE network
  * participant.
