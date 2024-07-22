@@ -1,4 +1,5 @@
 import {
+  IBearerTokenCredential,
   IGoogleOAuth2Credential,
   IPlatformAuthenticatorCredential,
   ISerializable,
@@ -95,6 +96,38 @@ export class GoogleOAuth2Credential
     this.googleOAuth2CredentialJWT = dict[
       "google_oauth2_credential_jwt"
     ] as string;
+  }
+
+  loadFromDisk(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  saveToDisk(): void {
+    throw new Error("Method not implemented.");
+  }
+}
+
+export class BearerTokenCredential
+  implements IBearerTokenCredential, ISerializable
+{
+  credentialType: string;
+  credentialToken: string;
+
+  constructor(credentialToken: string) {
+    this.credentialType = "bearer_token";
+    this.credentialToken = credentialToken;
+  }
+
+  toDictionary() {
+    return {
+      credential_type: this.credentialType,
+      credential_token: this.credentialToken,
+    };
+  }
+
+  fromDictionary(dict: Dictionary): void {
+    this.credentialType = dict["credential_type"] as string;
+    this.credentialToken = dict["credential_token"] as string;
   }
 
   loadFromDisk(): void {
