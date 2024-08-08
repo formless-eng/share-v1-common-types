@@ -128,6 +128,7 @@ export interface IAssetV2 {
     name: string;
     type: string;
     media_url: string;
+    asset_type: string;
   };
 }
 
