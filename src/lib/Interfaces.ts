@@ -37,6 +37,7 @@ export interface IBearerTokenCredential {
 export interface IIdentity {
   uniqueID?: string | undefined;
   displayName?: string | undefined;
+  emailAddress?: string | undefined;
   verifiedIdentity?: boolean | undefined;
   financialAccounts?: IFinancialAccount[] | undefined;
   // TODO(https://github.com/formless-eng/share/issues/1965):
