@@ -38,6 +38,7 @@ export interface IIdentity {
   uniqueID?: string | undefined;
   displayName?: string | undefined;
   emailAddress?: string | undefined;
+  phoneNumber?: number;
   verifiedIdentity?: boolean | undefined;
   financialAccounts?: IFinancialAccount[] | undefined;
   // TODO(https://github.com/formless-eng/share/issues/1965):
@@ -163,4 +164,13 @@ export interface IUserPreferences {
 export interface ISplitsPercentage {
   percentage: number;
   settled: boolean;
+}
+
+export interface IVerification {
+  email?: boolean;
+  sms?: boolean;
+  location?: boolean;
+  instagram?: boolean;
+  tiktok?: boolean;
+  x?: boolean;
 }
