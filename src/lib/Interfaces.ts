@@ -42,6 +42,8 @@ export interface IIdentityController {
 export interface IIdentity {
   uniqueID?: string | undefined;
   displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  phoneNumber?: number;
   verifiedIdentity?: boolean | undefined;
   isGroup?: boolean | undefined;
   financialAccounts?: IFinancialAccount[] | undefined;
@@ -144,6 +146,21 @@ export interface ISplit {
   type?: string;
 }
 
+export interface IAssetV2 {
+  name: string;
+  id: string;
+  timestamp: {
+    _seconds: number;
+    _nanoseconds: number;
+  };
+  metadata: {
+    name: string;
+    type: string;
+    media_url: string;
+    asset_type: string;
+  };
+}
+
 export interface ISplitsData {
   total_slots: string;
   total_splits: number;
@@ -161,4 +178,18 @@ export interface IUserPreferences {
   enableEmailNotifications: boolean;
   enablePushNotifications: boolean;
   enableNotificationsEvents: NotificationEvent[];
+}
+
+export interface ISplitsPercentage {
+  percentage: number;
+  settled: boolean;
+}
+
+export interface IVerification {
+  email?: boolean;
+  sms?: boolean;
+  location?: boolean;
+  instagram?: boolean;
+  tiktok?: boolean;
+  x?: boolean;
 }
