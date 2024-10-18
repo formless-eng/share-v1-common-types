@@ -30,6 +30,11 @@ export interface IBearerTokenCredential {
   credentialToken: string;
 }
 
+export interface IIdentityController {
+  emailAddress: string;
+  role: string;
+}
+
 /**
  * The network layer identity of a SHARE network
  * participant.
@@ -38,17 +43,18 @@ export interface IIdentity {
   uniqueID?: string | undefined;
   displayName?: string | undefined;
   verifiedIdentity?: boolean | undefined;
+  isGroup?: boolean | undefined;
   financialAccounts?: IFinancialAccount[] | undefined;
   // TODO(https://github.com/formless-eng/share/issues/1965):
   // Deprecate top level platform authenticator credentials.
   platformAuthenticatorDataBase64?: string | undefined;
   platformAuthenticatorClientDataBase64?: string | undefined;
   platformAuthenticatorSignatureBase64?: string | undefined;
-
   platformAuthenticatorCredential?:
     | IPlatformAuthenticatorCredential
     | undefined;
   googleOAuth2Credential?: IGoogleOAuth2Credential | undefined;
+  authorizedControllers: IIdentityController[] | undefined;
 }
 
 /**
@@ -135,6 +141,7 @@ export interface ISplit {
   percentage: number;
   unique_id: string | null;
   wallet_address: string;
+  type?: string;
 }
 
 export interface ISplitsData {
@@ -148,13 +155,6 @@ export interface ISplitsData {
     display_name: string | null;
     percentage: number;
   }[];
-}
-
-export interface ISplit {
-  display_name: string | null;
-  percentage: number;
-  unique_id: string | null;
-  wallet_address: string;
 }
 
 export interface IUserPreferences {
