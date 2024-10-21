@@ -30,11 +30,6 @@ export interface IBearerTokenCredential {
   credentialToken: string;
 }
 
-export interface IIdentityController {
-  emailAddress: string;
-  role: string;
-}
-
 /**
  * The network layer identity of a SHARE network
  * participant.
@@ -45,18 +40,17 @@ export interface IIdentity {
   emailAddress?: string | undefined;
   phoneNumber?: number;
   verifiedIdentity?: boolean | undefined;
-  isGroup?: boolean | undefined;
   financialAccounts?: IFinancialAccount[] | undefined;
   // TODO(https://github.com/formless-eng/share/issues/1965):
   // Deprecate top level platform authenticator credentials.
   platformAuthenticatorDataBase64?: string | undefined;
   platformAuthenticatorClientDataBase64?: string | undefined;
   platformAuthenticatorSignatureBase64?: string | undefined;
+
   platformAuthenticatorCredential?:
     | IPlatformAuthenticatorCredential
     | undefined;
   googleOAuth2Credential?: IGoogleOAuth2Credential | undefined;
-  authorizedControllers: IIdentityController[] | undefined;
 }
 
 /**
@@ -125,27 +119,6 @@ export interface IAsset {
   play_count: number;
 }
 
-export interface ISplitsData {
-  total_slots: string;
-  total_splits: number;
-  community_allocation_percent: number;
-  percent_per_slot: number;
-  splits_data: {
-    wallet_address: string;
-    unique_id: string;
-    display_name: string | null;
-    percentage: number;
-  }[];
-}
-
-export interface ISplit {
-  display_name: string | null;
-  percentage: number;
-  unique_id: string | null;
-  wallet_address: string;
-  type?: string;
-}
-
 export interface IAssetV2 {
   name: string;
   id: string;
@@ -172,6 +145,14 @@ export interface ISplitsData {
     display_name: string | null;
     percentage: number;
   }[];
+}
+
+export interface ISplit {
+  display_name: string | null;
+  percentage: number;
+  unique_id: string | null;
+  wallet_address: string;
+  verified_identity: boolean | null;
 }
 
 export interface IUserPreferences {
