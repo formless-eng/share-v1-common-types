@@ -7,6 +7,7 @@ export type {
   IUserPreferences,
   IPlatformAuthenticatorCredential,
   IGoogleOAuth2Credential,
+  IOAuth2Credential,
 } from "./lib/Interfaces";
 
 export type { Dictionary } from "./lib/Types";
