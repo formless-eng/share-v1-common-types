@@ -60,6 +60,7 @@ export interface IIdentity {
     | IPlatformAuthenticatorCredential
     | undefined;
   googleOAuth2Credential?: IGoogleOAuth2Credential | undefined;
+  oauth2Credential?: IOAuth2Credential | undefined;
 }
 
 /**
