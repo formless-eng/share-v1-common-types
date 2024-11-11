@@ -1,6 +1,7 @@
 import {
   IBearerTokenCredential,
   IGoogleOAuth2Credential,
+  IOAuth2Credential,
   IPlatformAuthenticatorCredential,
   ISerializable,
 } from "./Interfaces";
@@ -95,6 +96,49 @@ export class GoogleOAuth2Credential
     ] as string;
     this.googleOAuth2CredentialJWT = dict[
       "google_oauth2_credential_jwt"
+    ] as string;
+  }
+
+  loadFromDisk(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  saveToDisk(): void {
+    throw new Error("Method not implemented.");
+  }
+}
+
+export class OAuth2Credential
+  implements IOAuth2Credential, ISerializable
+{
+  credentialType: string;
+  oauth2CredentialClientID: string;
+  oauth2CredentialJWT: string;
+
+  constructor(
+    oauth2CredentialClientID: string,
+    oauth2CredentialJWT: string
+  ) {
+    this.credentialType = "oauth2_credential";
+    this.oauth2CredentialClientID = oauth2CredentialClientID;
+    this.oauth2CredentialJWT = oauth2CredentialJWT;
+  }
+
+  toDictionary(): Dictionary {
+    return {
+      credential_type: this.credentialType,
+      oauth2_credential_client_id: this.oauth2CredentialClientID,
+      oauth2_credential_jwt: this.oauth2CredentialJWT,
+    };
+  }
+
+  fromDictionary(dict: Dictionary): void {
+    this.credentialType = dict["credential_type"] as string;
+    this.oauth2CredentialClientID = dict[
+      "oauth2_credential_client_id"
+    ] as string;
+    this.oauth2CredentialJWT = dict[
+      "oauth2_credential_jwt"
     ] as string;
   }
 
