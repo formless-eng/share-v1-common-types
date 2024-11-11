@@ -22,6 +22,15 @@ export interface IGoogleOAuth2Credential {
 }
 
 /*
+ * OAuth2 credential type.
+ */
+export interface IOAuth2Credential {
+  credentialType: string;
+  oauth2CredentialClientID: string;
+  oauth2CredentialJWT: string;
+}
+
+/*
  * Bearer Token credential type for use with SHARE
  * protocol smart contract SDK.
  */
@@ -51,6 +60,7 @@ export interface IIdentity {
     | IPlatformAuthenticatorCredential
     | undefined;
   googleOAuth2Credential?: IGoogleOAuth2Credential | undefined;
+  oauth2Credential?: IOAuth2Credential | undefined;
 }
 
 /**

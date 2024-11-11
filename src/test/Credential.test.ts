@@ -2,6 +2,7 @@ import {
   PlatformAuthenticatorCredential,
   GoogleOAuth2Credential,
   BearerTokenCredential,
+  OAuth2Credential,
 } from "../lib/Credential";
 
 describe("PlatformAuthenticatorCredential", () => {
@@ -110,6 +111,50 @@ describe("GoogleOAuth2Credential", () => {
     );
     expect(credential.googleOAuth2CredentialJWT).toBe(
       "test/googleOAuth2CredentialJWT"
+    );
+  });
+});
+
+describe("OAuth2Credential", () => {
+  let credential: OAuth2Credential;
+
+  beforeEach(() => {
+    credential = new OAuth2Credential(
+      "test/oauth2CredentialClientID",
+      "test/oauth2CredentialJWT"
+    );
+  });
+
+  it("should initialize with correct values", () => {
+    expect(credential.credentialType).toBe("oauth2_credential");
+    expect(credential.oauth2CredentialClientID).toBe(
+      "test/oauth2CredentialClientID"
+    );
+    expect(credential.oauth2CredentialJWT).toBe(
+      "test/oauth2CredentialJWT"
+    );
+  });
+
+  it("should serialize to dictionary with correct values", () => {
+    expect(credential.toDictionary()).toEqual({
+      credential_type: "oauth2_credential",
+      oauth2_credential_client_id: "test/oauth2CredentialClientID",
+      oauth2_credential_jwt: "test/oauth2CredentialJWT",
+    });
+  });
+
+  it("should deserialize from dictionary with correct values", () => {
+    credential.fromDictionary({
+      credential_type: "oauth2_credential",
+      oauth2_credential_client_id: "test/oauth2CredentialClientID",
+      oauth2_credential_jwt: "test/oauth2CredentialJWT",
+    });
+    expect(credential.credentialType).toBe("oauth2_credential");
+    expect(credential.oauth2CredentialClientID).toBe(
+      "test/oauth2CredentialClientID"
+    );
+    expect(credential.oauth2CredentialJWT).toBe(
+      "test/oauth2CredentialJWT"
     );
   });
 });
