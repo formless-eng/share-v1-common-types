@@ -52,9 +52,9 @@ describe("FinancialAccount", () => {
       is_managed: true,
       evm_blockchain_address: "0x123456789",
       metadata: {
-        wallet_type: "custodial",
-        waas_implementation: "fireblocks",
-        smart_contract_implementation: "erc20",
+        wallet_type: "ERC4337",
+        waas_implementation: "privy",
+        smart_contract_implementation: "coinbase_smart_wallet",
         primary: true,
         signers: ["0xabc123", "0xdef456"],
         date_added: "2023-05-15T10:30:00Z",
@@ -67,13 +67,13 @@ describe("FinancialAccount", () => {
     expect(financialAccount.isManaged).toBe(true);
     expect(financialAccount.evmBlockchainAddress).toBe("0x123456789");
     expect(financialAccount.metadata).toBeDefined();
-    expect(financialAccount.metadata?.walletType).toBe("custodial");
+    expect(financialAccount.metadata?.walletType).toBe("ERC4337");
     expect(financialAccount.metadata?.waasImplementation).toBe(
-      "fireblocks"
+      "privy"
     );
     expect(
       financialAccount.metadata?.smartContractImplementation
-    ).toBe("erc20");
+    ).toBe("coinbase_smart_wallet");
     expect(financialAccount.metadata?.primary).toBe(true);
     expect(financialAccount.metadata?.signers).toEqual([
       "0xabc123",
@@ -88,9 +88,9 @@ describe("FinancialAccount", () => {
     financialAccount.isManaged = true;
     financialAccount.evmBlockchainAddress = "0x123456789";
     financialAccount.metadata = {
-      walletType: "custodial",
-      waasImplementation: "fireblocks",
-      smartContractImplementation: "erc20",
+      walletType: "ERC4337",
+      waasImplementation: "privy",
+      smartContractImplementation: "coinbase_smart_wallet",
       primary: true,
       signers: ["0xabc123", "0xdef456"],
       dateAdded: "2023-05-15T10:30:00Z",
@@ -104,9 +104,9 @@ describe("FinancialAccount", () => {
       evm_blockchain_signature: undefined,
       evm_blockchain_network_id: undefined,
       metadata: {
-        wallet_type: "custodial",
-        waas_implementation: "fireblocks",
-        smart_contract_implementation: "erc20",
+        wallet_type: "ERC4337",
+        waas_implementation: "privy",
+        smart_contract_implementation: "coinbase_smart_wallet",
         primary: true,
         signers: ["0xabc123", "0xdef456"],
         date_added: "2023-05-15T10:30:00Z",
@@ -132,9 +132,8 @@ describe("FinancialAccount", () => {
     const entry = {
       is_managed: true,
       metadata: {
-        wallet_type: "custodial",
+        wallet_type: "ERC4337",
         primary: true,
-        // Missing other metadata fields
       },
     };
 
@@ -142,7 +141,7 @@ describe("FinancialAccount", () => {
 
     expect(financialAccount.isManaged).toBe(true);
     expect(financialAccount.metadata).toBeDefined();
-    expect(financialAccount.metadata?.walletType).toBe("custodial");
+    expect(financialAccount.metadata?.walletType).toBe("ERC4337");
     expect(financialAccount.metadata?.primary).toBe(true);
     expect(
       financialAccount.metadata?.waasImplementation
@@ -157,10 +156,7 @@ describe("FinancialAccount", () => {
   it("should not include metadata in VDR formatted dictionary when undefined", () => {
     financialAccount.isManaged = true;
     financialAccount.evmBlockchainAddress = "0x123456789";
-    // No metadata set
-
     const dictionary = financialAccount.toVDRFormattedDictionary();
-
     expect(dictionary).toEqual({
       is_managed: true,
       evm_blockchain_address: "0x123456789",

@@ -190,8 +190,7 @@ describe("BearerTokenCredential", () => {
 });
 
 describe("JWTCredential", () => {
-  const testJwt =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+  const testJwt = "test/jwt";
 
   test("constructor sets properties correctly", () => {
     const credential = new JWTCredential(testJwt);
