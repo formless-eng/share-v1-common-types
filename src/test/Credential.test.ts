@@ -3,6 +3,7 @@ import {
   GoogleOAuth2Credential,
   BearerTokenCredential,
   OAuth2Credential,
+  JWTCredential,
 } from "../lib/Credential";
 
 describe("PlatformAuthenticatorCredential", () => {
@@ -185,5 +186,53 @@ describe("BearerTokenCredential", () => {
     });
     expect(credential.credentialType).toBe("bearer_token");
     expect(credential.credentialToken).toBe("test/credentialToken");
+  });
+});
+
+describe("JWTCredential", () => {
+  const testJwt = "test/jwt";
+
+  test("constructor sets properties correctly", () => {
+    const credential = new JWTCredential(testJwt);
+
+    expect(credential.credentialType).toBe("jwt_credential");
+    expect(credential.jwt).toBe(testJwt);
+  });
+
+  test("toDictionary returns correct dictionary", () => {
+    const credential = new JWTCredential(testJwt);
+    const dict = credential.toDictionary();
+
+    expect(dict).toEqual({
+      credential_type: "jwt_credential",
+      jwt: testJwt,
+    });
+  });
+
+  test("fromDictionary sets properties correctly", () => {
+    const credential = new JWTCredential("");
+    credential.fromDictionary({
+      credential_type: "jwt_credential",
+      jwt: testJwt,
+    });
+
+    expect(credential.credentialType).toBe("jwt_credential");
+    expect(credential.jwt).toBe(testJwt);
+  });
+
+  test("loadFromDisk throws error", () => {
+    const credential = new JWTCredential(testJwt);
+
+    expect(() => {
+      credential.loadFromDisk();
+    }).toThrow("Method not implemented.");
+  });
+
+  test("saveToDisk throws error", () => {
+    const credential = new JWTCredential(testJwt);
+
+    expect(() => {
+      credential.saveToDisk();
+    }).toThrow("Method not implemented.");
   });
 });
