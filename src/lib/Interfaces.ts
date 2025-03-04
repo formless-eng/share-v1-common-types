@@ -184,3 +184,8 @@ export interface IVerification {
   tiktok?: boolean;
   x?: boolean;
 }
+
+export interface IJWTCredential {
+  credentialType: string;
+  jwt: string;
+}
