@@ -189,3 +189,10 @@ export interface IJWTCredential {
   credentialType: string;
   jwt: string;
 }
+
+export type ICredential =
+  | IPlatformAuthenticatorCredential
+  | IGoogleOAuth2Credential
+  | IOAuth2Credential
+  | IBearerTokenCredential
+  | IJWTCredential;
