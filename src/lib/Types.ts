@@ -8,6 +8,11 @@ export enum NotificationEvent {
   SplitTransaction = "SplitTransaction",
 }
 
+export enum LicenseType {
+  ApplicationLicenseV1 = "APPLICATION_LICENSE_V1",
+  UnlimitedLeaseV1 = "UNLIMITED_LEASE_V1",
+}
+
 export type DDNContractContentMetadata = {
   name?: string;
   description?: string;
@@ -51,5 +56,6 @@ export type DDNContractMetadata = {
   nft_verification?: DDNContractNFTVerificationMetadata;
   price_per_access_usd?: number;
   supports_licensing?: boolean;
+  license_type?: LicenseType;
   price_per_license_usd?: number;
 };
