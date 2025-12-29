@@ -14,19 +14,19 @@ export enum LicenseType {
 }
 
 export type DDNContractContentMetadata = {
-  name?: string;
-  description?: string;
-  image?: string;
-  attributes?: {};
-  title?: string;
-  artist?: string;
-  type?: string;
+  name: string;
+  description: string;
+  image: string;
+  attributes: Record<string, unknown>;
+  title: string;
+  artist: string;
+  type: string;
   enable_fiat_bridged_payments: boolean;
   animation_url: string;
-  audio?: string;
-  video?: string;
-  video_hls?: string;
-  file?: string;
+  audio: string | null;
+  video: string | null;
+  video_hls: string | null;
+  file: string | null;
 };
 
 export type DDNContractSplitsMetadata = {

@@ -1,4 +1,9 @@
-import { Dictionary, NotificationEvent } from "./Types";
+import {
+  DDNContractSplitsMetadata,
+  Dictionary,
+  NotificationEvent,
+} from "./Types";
+import { DDNContractContentMetadata } from "./Types";
 
 /*
  * Secure enclave credential type for use
@@ -107,7 +112,13 @@ export interface IVDRSerializable {
 
 export interface IAsset {
   asset_title: string;
+  asset_type: string;
+  audio_analysis: {
+    embedding_mert_v1_330M_1024D_normalized_mean_pooled: unknown;
+    genre: string;
+  } | null;
   blockchain: number;
+  cloud_function_endpoint: string;
   contract_address: string;
   count_transactions: number;
   creator_address: string;
@@ -118,30 +129,45 @@ export interface IAsset {
     price_per_access_usd: number;
     metadata: {
       absolute_expiration: number;
-      preview: {
-        image: string | null;
-        type: string;
-        audio?: string;
-        video?: string;
-      };
+      preview: DDNContractContentMetadata;
+      grant: DDNContractContentMetadata;
     };
+    [key: string]: unknown;
   };
-  play_count: number;
-}
-
-export interface IAssetV2 {
-  name: string;
+  direct_view_count: number;
+  enable_public_listing: boolean;
+  hidden: boolean;
   id: string;
+  media_url: string | null;
+  metadata: {
+    absolute_expiration: number;
+    asset_type: string;
+    grant: DDNContractContentMetadata;
+    grant_ttl_seconds: number;
+    json_rpc: string;
+    license_type: string;
+    media_url: string;
+    name: string;
+    network_id: number;
+    preview: DDNContractContentMetadata;
+    price_per_access_usd: number;
+    price_per_license_usd: number;
+    supports_licensing: boolean;
+    type: string;
+  };
+  name: string;
+  network_id: number;
+  PFA: {
+    contract_address: string;
+  } | null;
+  play_count: number;
+  splits: DDNContractSplitsMetadata | null;
   timestamp: {
     _seconds: number;
     _nanoseconds: number;
   };
-  metadata: {
-    name: string;
-    type: string;
-    media_url: string;
-    asset_type: string;
-  };
+  type: string;
+  unique_id: string;
 }
 
 export interface ISplitsData {
