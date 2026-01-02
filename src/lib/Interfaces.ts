@@ -113,40 +113,33 @@ export interface IVDRSerializable {
 export interface IAsset {
   asset_title: string;
   asset_type: string;
-
   audio_analysis: {
     embedding_mert_v1_330M_1024D_normalized_mean_pooled: unknown;
     genre: string;
   } | null;
-
   blockchain: number;
   cloud_function_endpoint: string;
   contract_address: string;
   count_transactions: number;
   creator_address: string;
   creator_name: string;
-
   deployment_metadata: {
     contracts: any[];
     grant_ttl_seconds: number;
-
     metadata: {
       absolute_expiration: number | string;
       grant: DDNContractContentMetadata;
       preview: DDNContractContentMetadata;
       [key: string]: unknown;
     };
-
     price_per_access_usd: number;
     [key: string]: unknown;
   };
-
   direct_view_count: number;
   enable_public_listing: boolean;
   hidden: boolean;
   id: string;
   media_url: string | null;
-
   metadata: {
     absolute_expiration: number | string;
     access_grant_ttl_seconds?: number;
@@ -177,24 +170,19 @@ export interface IAsset {
     transaction_hash?: string;
     type: string;
   };
-
   name: string;
   network_id: number;
-
   PFA: {
     contract_address: string;
   } | null;
-
   play_count: number;
   splits: DDNContractSplitsMetadata | null;
-
   timestamp:
     | string
     | {
         _seconds: number;
         _nanoseconds: number;
       };
-
   type: string;
   unique_id: string;
 }
