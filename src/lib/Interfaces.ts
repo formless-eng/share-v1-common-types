@@ -126,12 +126,13 @@ export interface IAsset {
   deployment_metadata: {
     contracts: any[];
     grant_ttl_seconds: number;
-    price_per_access_usd: number;
     metadata: {
-      absolute_expiration: number;
-      preview: DDNContractContentMetadata;
+      absolute_expiration: number | string;
       grant: DDNContractContentMetadata;
+      preview: DDNContractContentMetadata;
+      [key: string]: unknown;
     };
+    price_per_access_usd: number;
     [key: string]: unknown;
   };
   direct_view_count: number;
@@ -140,8 +141,16 @@ export interface IAsset {
   id: string;
   media_url: string | null;
   metadata: {
-    absolute_expiration: number;
+    absolute_expiration: number | string;
+    access_grant_ttl_seconds?: number;
+    asset_description?: string;
+    asset_title?: string;
     asset_type: string;
+    blockchain_id?: number;
+    cloud_function_endpoint?: string;
+    community_splits_quantity?: number;
+    contract_address?: string;
+    creator_name?: string;
     grant: DDNContractContentMetadata;
     grant_ttl_seconds: number;
     json_rpc: string;
@@ -149,10 +158,19 @@ export interface IAsset {
     media_url: string;
     name: string;
     network_id: number;
+    PFA: {
+      contract_address: string;
+    } | null;
     preview: DDNContractContentMetadata;
     price_per_access_usd: number;
     price_per_license_usd: number;
+    stakeholder_basis_points_dict?: Record<string, number>;
+    stakeholder_table_row_data?: Array<{
+      email: string;
+      percentage: number;
+    }>;
     supports_licensing: boolean;
+    transaction_hash?: string;
     type: string;
   };
   name: string;
@@ -162,10 +180,12 @@ export interface IAsset {
   } | null;
   play_count: number;
   splits: DDNContractSplitsMetadata | null;
-  timestamp: {
-    _seconds: number;
-    _nanoseconds: number;
-  };
+  timestamp:
+    | string
+    | {
+        _seconds: number;
+        _nanoseconds: number;
+      };
   type: string;
   unique_id: string;
 }

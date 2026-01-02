@@ -35,6 +35,10 @@ export type DDNContractSplitsMetadata = {
   split_contract_address: string;
   split_contract_type: string;
   splits_limit_per_unique_id: number;
+  split_contract_version?: string;
+  splits_recipient_requirements?: {
+    content_purchase?: boolean;
+  };
 };
 
 export type DDNContractNFTVerificationMetadata = {
