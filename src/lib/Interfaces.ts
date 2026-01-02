@@ -165,7 +165,10 @@ export interface IAsset {
     price_per_access_usd: number;
     price_per_license_usd: number;
     stakeholder_basis_points_dict?: Record<string, number>;
-    stakeholder_table_row_data?: Record<string, unknown>;
+    stakeholder_table_row_data?: Array<{
+      email: string;
+      percentage: number;
+    }>;
     supports_licensing: boolean;
     transaction_hash?: string;
     type: string;
