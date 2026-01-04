@@ -152,7 +152,7 @@ export interface IAsset {
     cloud_function_endpoint?: string;
     community_splits_quantity?: number;
     contract_address?: string;
-    contract_type: ContractType;
+    contract_type?: ContractType;
     creator_name?: string;
     grant: DDNContractContentMetadata;
     grant_ttl_seconds: number;
