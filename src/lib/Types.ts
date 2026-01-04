@@ -25,6 +25,7 @@ export type FileType =
   | "audio/x-wav"
   | "audio/mpeg"
   | "application/mp4"
+  | "video/mp4"
   | "video/quicktime"
   | "image/png"
   | "image/jpg"
