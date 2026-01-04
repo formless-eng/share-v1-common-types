@@ -13,6 +13,32 @@ export enum LicenseType {
   UnlimitedLeaseV1 = "UNLIMITED_LEASE_V1",
 }
 
+export type AssetType =
+  | "property" // A contract representing an off-app asset
+  | "audio" // A contract representing an in-app audio asset
+  | "video" // A contract representing an in-app video asset
+  | "collection" // A contract representing an in-app playlist asset
+  | "zipfile" // A contract representing an in-app zip file asset
+  | "binary"; // A non-contract based raw binary file upload
+
+export type FileType =
+  | "audio/x-wav"
+  | "audio/mpeg"
+  | "application/mp4"
+  | "video/mp4"
+  | "video/quicktime"
+  | "image/png"
+  | "image/jpg"
+  | "image/jpeg"
+  | "application/zip";
+
+export type ContractType =
+  | "property smart contract"
+  | "revenue share smart contract"
+  | "digital asset with revenue share"
+  | "collection smart contract"
+  | "fractionalized royalties contract";
+
 export type DDNContractContentMetadata = {
   name: string;
   description: string;
@@ -20,7 +46,7 @@ export type DDNContractContentMetadata = {
   attributes: Record<string, unknown>;
   title: string;
   artist: string;
-  type: string;
+  type: AssetType;
   enable_fiat_bridged_payments: boolean;
   animation_url: string;
   audio: string | null;

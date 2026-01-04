@@ -1,6 +1,10 @@
 import {
+  AssetType,
+  ContractType,
   DDNContractSplitsMetadata,
   Dictionary,
+  FileType,
+  LicenseType,
   NotificationEvent,
 } from "./Types";
 import { DDNContractContentMetadata } from "./Types";
@@ -112,7 +116,7 @@ export interface IVDRSerializable {
 
 export interface IAsset {
   asset_title: string;
-  asset_type: string;
+  asset_type: AssetType;
   audio_analysis: {
     embedding_mert_v1_330M_1024D_normalized_mean_pooled: unknown;
     genre: string;
@@ -127,13 +131,11 @@ export interface IAsset {
     contracts: any[];
     grant_ttl_seconds: number;
     metadata: {
-      absolute_expiration: number | string;
+      absolute_expiration: number;
       grant: DDNContractContentMetadata;
       preview: DDNContractContentMetadata;
-      [key: string]: unknown;
     };
     price_per_access_usd: number;
-    [key: string]: unknown;
   };
   direct_view_count: number;
   enable_public_listing: boolean;
@@ -141,21 +143,22 @@ export interface IAsset {
   id: string;
   media_url: string | null;
   metadata: {
-    absolute_expiration: number | string;
+    absolute_expiration: number;
     access_grant_ttl_seconds?: number;
     asset_description?: string;
     asset_title?: string;
-    asset_type: string;
+    asset_type: AssetType;
     blockchain_id?: number;
     cloud_function_endpoint?: string;
     community_splits_quantity?: number;
     contract_address?: string;
+    contract_type?: ContractType;
     creator_name?: string;
     grant: DDNContractContentMetadata;
     grant_ttl_seconds: number;
     json_rpc: string;
-    license_type: string;
-    media_url: string;
+    license_type: LicenseType;
+    media_url: string | null;
     name: string;
     network_id: number;
     PFA: {
@@ -171,7 +174,7 @@ export interface IAsset {
     }>;
     supports_licensing: boolean;
     transaction_hash?: string;
-    type: string;
+    type: AssetType | FileType;
   };
   name: string;
   network_id: number;
@@ -186,7 +189,7 @@ export interface IAsset {
         _seconds: number;
         _nanoseconds: number;
       };
-  type: string;
+  type: AssetType;
   unique_id: string;
 }
 
