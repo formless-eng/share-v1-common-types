@@ -89,3 +89,10 @@ export type DDNContractMetadata = {
   license_type?: LicenseType;
   price_per_license_usd?: number;
 };
+
+export type CommunitySplitsOption = {
+  name: string;
+  description: string;
+  split_percentage: number;
+  split_count: number;
+};
